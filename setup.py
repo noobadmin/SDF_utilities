@@ -8,6 +8,8 @@ try:
     gotnumpy = True
 except:
     gotnumpy = False
+    print('No numpy.')
+    sys.exit(1)
 
 
 def get_numpy_dir():
