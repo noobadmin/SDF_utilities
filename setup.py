@@ -6,10 +6,10 @@ import subprocess as sp
 try:
     import numpy
     gotnumpy = True
+    print('yup')
 except:
     gotnumpy = False
-    print('No numpy.')
-    sys.exit(1)
+    print('nope')
 
 
 def get_numpy_dir():
