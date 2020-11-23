@@ -58,7 +58,7 @@ if [ $clean -le 1 ] ; then
   gcc $OPT -o sdfdiff sdfdiff.c -lsdfc -ldl -lm || errcode=1
   # Test if python is new enough for the --user flag
   if [ $system -eq 0 ]; then
-    user=$($PYTHONCMD -c 'import sys, os
+    user=$(python3 -c 'import sys, os
 newenough = sys.hexversion > 0x02060000
 if newenough: sys.exit(newenough)
 for p in sys.path:
@@ -74,7 +74,7 @@ sys.exit(newenough)')
   else
     uflags=
   fi
-  CFLAGS="$OPT" $PYTHONCMD setup.py build $PYDBG -b pybuild install \
+  CFLAGS="$OPT" python3 setup.py build $PYDBG -b pybuild install \
       $uflags --record pybuild/files.txt || errcode=1
   which a2x > /dev/null 2>&1
   if [ $? -eq 0 ]; then
